@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Experiência AR iPhone</title>
+  <title>Experiência AR</title>
   <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
     body {
@@ -26,23 +26,27 @@
 <body>
 
 <model-viewer
-  ios-src="https://kk-ycee.vercel.app/model.usdz"
-  alt="Modelo 3D iOS"
+  id="arViewer"
+  src="model.glb"
+  ios-src="model.usdz"
+  alt="Modelo 3D"
   ar
-  ar-modes="quick-look"
+  ar-modes="webxr scene-viewer quick-look"
   ar-scale="auto"
   camera-controls
   auto-rotate
-  interaction-prompt="auto"
-  style="width: 600px; height: 400px;">
+  reveal="auto"
+  interaction-prompt="none">
 </model-viewer>
 
 <script>
   window.addEventListener('load', () => {
-    const viewer = document.querySelector('model-viewer');
-    // Ativa AR direto se possível
+    const viewer = document.getElementById('arViewer');
     if (viewer.canActivateAR) {
       viewer.activateAR();
+    } else {
+      // fallback opcional: botão ou mensagem
+      console.log("AR automático não suportado.");
     }
   });
 </script>
