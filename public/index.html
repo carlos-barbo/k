@@ -17,8 +17,8 @@
         if (isIOS()) {
           window.location.href = "/model.usdz"; // abre direto no iOS
         } else if (isAndroid()) {
-          const file = encodeURIComponent("https://SEU_DOMINIO/model.glb");
-          const fallback = encodeURIComponent("https://SEU_DOMINIO/fallback.html");
+          const file = encodeURIComponent("https://kk-ycee.vercel.app/model.glb");
+          const fallback = encodeURIComponent("https://kk-ycee.vercel.app/fallback.html");
           const intentUrl = `intent://arvr.google.com/scene-viewer/1.0?file=${file}&mode=ar_preferred#Intent;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;S.browser_fallback_url=${fallback};end;`;
           window.location.href = intentUrl;
         } else {
