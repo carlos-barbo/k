@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Experiência AR</title>
+  <title>Experiência AR iPhone</title>
   <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
     body {
@@ -26,11 +26,10 @@
 <body>
 
 <model-viewer
-  src="https://seusite.com/modelo.glb"
   ios-src="https://kk-ycee.vercel.app/model.usdz"
-  alt="Modelo 3D"
+  alt="Modelo 3D iOS"
   ar
-  ar-modes="webxr scene-viewer quick-look"
+  ar-modes="quick-look"
   ar-scale="auto"
   camera-controls
   auto-rotate
@@ -38,11 +37,10 @@
   style="width: 600px; height: 400px;">
 </model-viewer>
 
-
 <script>
   window.addEventListener('load', () => {
     const viewer = document.querySelector('model-viewer');
-    // Tentar abrir o modo AR direto, se suportado
+    // Ativa AR direto se possível
     if (viewer.canActivateAR) {
       viewer.activateAR();
     }
