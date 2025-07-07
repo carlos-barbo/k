@@ -7,23 +7,63 @@
   <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
     body {
-      margin: 0; 
-      display: flex; 
-      justify-content: center; 
-      align-items: center; 
-      height: 100vh; 
-      background: #000000;
+      margin: 0;
+      background: #f9f9f9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      padding: 32px 24px;
+      max-width: 340px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #111;
+    }
+
+    p {
+      color: #666;
+      font-size: 1rem;
+      margin-bottom: 24px;
+    }
+
+    button {
+      background-color: #007AFF;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #005fd1;
+    }
+
     model-viewer {
-      width: 100%;
-      max-width: 600px;
-      height: 400px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      display: none;
     }
   </style>
 </head>
 <body>
+
+<div class="card" id="card">
+  <h1>Experiência AR</h1>
+  <p>Deseja iniciar a experiência em realidade aumentada?</p>
+  <button onclick="startAR()">Iniciar Agora</button>
+</div>
 
 <model-viewer
   id="arViewer"
@@ -40,15 +80,18 @@
 </model-viewer>
 
 <script>
-  window.addEventListener('load', () => {
+  function startAR() {
     const viewer = document.getElementById('arViewer');
+    document.getElementById('card').style.display = 'none';
+    viewer.style.display = 'block';
+
+    // Tenta iniciar AR automaticamente
     if (viewer.canActivateAR) {
       viewer.activateAR();
     } else {
-      // fallback opcional: botão ou mensagem
       console.log("AR automático não suportado.");
     }
-  });
+  }
 </script>
 
 </body>
